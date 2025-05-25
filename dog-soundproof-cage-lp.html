@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAN ROOM - 愛犬の防音ケージ | 音の悩みを解決する特注家具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ヘッダー */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8B4513;
+        }
+        
+        .cta-header {
+            background: #FF6B35;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-header:hover {
+            background: #FF5722;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,53,0.3);
+        }
+        
+        /* ファーストビュー */
+        .hero {
+            background: linear-gradient(135deg, #FFF9F5 0%, #FFE5D9 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,53,0.05) 0%, transparent 70%);
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+        
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            margin-bottom: 20px;
+            color: #2C3E50;
+            font-weight: 900;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(16px, 3vw, 20px);
+            color: #666;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .limited-offer {
+            background: #FFF;
+            border: 2px dashed #FF6B35;
+            border-radius: 10px;
+            padding: 15px 25px;
+            display: inline-block;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .limited-offer span {
+            color: #FF6B35;
+            font-weight: bold;
+        }
+        
+        .cta-primary {
+            background: #FF6B35;
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255,107,53,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-primary:hover {
+            background: #FF5722;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,107,53,0.4);
+        }
+        
+        .cta-secondary {
+            color: #8B4513;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-secondary:hover {
+            border-bottom-color: #8B4513;
+        }
+        
+        /* セクション共通 */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: clamp(28px, 5vw, 36px);
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2C3E50;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #FF6B35;
+            border-radius: 2px;
+        }
+        
+        /* 共感セクション */
+        .problems {
+            background: #F8F9FA;
+        }
+        
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .problem-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2C3E50;
+        }
+        
+        .problem-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .solution-text {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF6B35;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 特徴セクション */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #FFF 0%, #F5F5F5 100%);
+            padding: 0;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #FF6B35 0%, #FFB347 100%);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-image {
+            width: 100%;
+            height: 180px;
+            background: #F0F0F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .feature-image:empty::before {
+            content: '🖼️';
+            font-size: 48px;
+            color: #CCC;
+        }
+        
+        .feature-number {
+            background: #FF6B35;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: -25px auto 20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 3px 10px rgba(255,107,53,0.3);
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2C3E50;
+            padding: 0 20px;
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            text-align: left;
+            padding: 0 30px 30px;
+        }
+        
+        .feature-card li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .feature-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        /* ビフォーアフター */
+        .before-after {
+            background: #FFF9F5;
+        }
+        
+        .ba-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .ba-box {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .ba-box.before {
+            background: #FFE5E5;
+        }
+        
+        .ba-box.after {
+            background: #E5FFE5;
+        }
+        
+        .ba-label {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .ba-box.before .ba-label {
+            color: #FF4444;
+        }
+        
+        .ba-box.after .ba-label {
+            color: #4CAF50;
+        }
+        
+        .ba-content {
+            font-size: 48px;
+            margin: 20px 0;
+        }
+        
+        .ba-description {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* 画像ギャラリー */
+        .gallery {
+            background: #FFF;
+        }
+        
+        .gallery-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .gallery-slider {
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item {
+            min-width: 100%;
+            height: 400px;
+            background: #F5F5F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        
+        .gallery-nav:hover {
+            background: #FF6B35;
+            color: white;
+        }
+        
+        .gallery-nav.prev {
+            left: 20px;
+        }
+        
+        .gallery-nav.next {
+            right: 20px;
+        }
+        
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #DDD;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: #FF6B35;
+            width: 30px;
+            border-radius: 6px;
+        }
+        
+        .gallery-placeholder {
+            text-align: center;
+            color: #999;
+        }
+        
+        .gallery-placeholder i {
+            font-size: 48px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .add-more-images {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #F0F0F0;
+            border-radius: 10px;
+            border: 2px dashed #CCC;
+        }
+        
+        /* 料金表 */
+        .pricing {
+            background: #F8F9FA;
+        }
+        
+        .pricing-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #EEE;
+        }
+        
+        th {
+            background: #FF6B35;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background: #FFF9F5;
+        }
+        
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF6B35;
+        }
+        
+        .cashback-info {
+            background: linear-gradient(135deg, #FFE5D9 0%, #FFF 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            border: 2px solid #FF6B35;
+        }
+        
+        .cashback-info i {
+            font-size: 48px;
+            color: #FF6B35;
+            margin-bottom: 15px;
+        }
+        
+        /* お客様の声 */
+        .testimonials {
+            background: white;
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: #F8F9FA;
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .quote-icon {
+            font-size: 48px;
+            color: #FF6B35;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            padding-top: 30px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            text-align: right;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .customer-photo {
+            width: 60px;
+            height: 60px;
+            margin: 15px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #F0F0F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .customer-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .customer-photo:empty::before {
+            content: '👤';
+            font-size: 30px;
+            color: #CCC;
+        }
+        
+        /* FAQ */
+        .faq {
+            background: #FFF9F5;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+        
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: #2C3E50;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #F8F9FA;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: #FF6B35;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 25px 25px;
+        }
+        
+        /* 保証セクション */
+        .guarantee {
+            background: linear-gradient(135deg, #4CAF50 0%, #45A049 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .guarantee-box {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .guarantee h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .guarantee-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        /* CTA最終 */
+        .final-cta {
+            background: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .final-cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-methods {
+            margin-top: 40px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-method {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            opacity: 1;
+        }
+        
+        /* フッター */
+        footer {
+            background: #1A1A1A;
+            color: #AAA;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .ba-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-table {
+                overflow-x: auto;
+            }
+            
+            table {
+                min-width: 500px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-primary {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        /* アニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header id="header">
+        <nav class="container">
+            <div class="logo">🐕 WAN ROOM</div>
+            <a href="#contact" class="cta-header">無料見積もり</a>
+        </nav>
+    </header>
+
+    <!-- ファーストビュー -->
+    <section class="hero">
+        <div class="container">
+            <div class="limited-offer">
+                🎉 <span>先着10名様限定</span> 特別価格でご提供中！
+            </div>
+            <h1>愛犬の鳴き声を、音の悩みにしない。<br>
+                防音×デザイン×安心設計<br>
+                —— 家族のための、静かな居場所。</h1>
+            <p class="subtitle">"吠えても大丈夫"な空間があれば、愛犬も、あなたももっと安心して暮らせる。</p>
+            <a href="#contact" class="cta-primary">無料見積もりを依頼する</a>
+            <br>
+            <a href="#custom" class="cta-secondary">カスタム相談はこちら →</a>
+        </div>
+    </section>
+
+    <!-- 共感と課題提起 -->
+    <section class="problems">
+        <div class="container">
+            <h2 class="section-title fade-in">なぜ、今「防音ケージ」なのか？</h2>
+            <div class="problem-cards">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">😰</div>
+                    <h3>近所トラブルの不安</h3>
+                    <p>夜泣きや留守番中の吠え声で、近所からの苦情に怯えている毎日...</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">🤔</div>
+                    <h3>しつけの限界</h3>
+                    <p>しつけだけでは解決できない"犬の本能"とどう付き合うか悩んでいる</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">🏠</div>
+                    <h3>インテリアとの不調和</h3>
+                    <p>リビングに置く既製品ケージの見た目や音漏れに満足できない</p>
+                </div>
+            </div>
+            <p class="solution-text fade-in">→ そんなお悩み、すべてこのケージで解決できます。</p>
+        </div>
+    </section>
+
+    <!-- ビフォーアフター -->
+    <section class="before-after">
+        <div class="container">
+            <h2 class="section-title fade-in">導入前後の変化</h2>
+            <div class="ba-container">
+                <div class="ba-box before fade-in">
+                    <span class="ba-label">BEFORE</span>
+                    <div class="ba-content">😟</div>
+                    <h3>導入前</h3>
+                    <p class="ba-description">
+                        ・近所への音漏れが心配<br>
+                        ・愛犬のストレスも心配<br>
+                        ・外出時の不安が常にある
+                    </p>
+                </div>
+                <div class="ba-box after fade-in">
+                    <span class="ba-label">AFTER</span>
+                    <div class="ba-content">😊</div>
+                    <h3>導入後</h3>
+                    <p class="ba-description">
+                        ・音を気にせず安心生活<br>
+                        ・愛犬も落ち着いて過ごせる<br>
+                        ・家族みんなが笑顔に
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 商品特徴 -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title fade-in">6つの特別な特徴</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-image">
+                        <img src="" alt="防音構造のイメージ">
+                    </div>
+                    <div class="feature-number">1</div>
+                    <h3>最大-40dBの防音構造</h3>
+                    <ul>
+                        <li>独自の吸音材＋遮音構造</li>
+                        <li>吸音パネル／密閉設計</li>
+                        <li>床面マット構造を最適化</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-image">
+                        <img src="" alt="換気設計のイメージ">
+                    </div>
+                    <div class="feature-number">2</div>
+                    <h3>愛犬に優しい換気設計</h3>
+                    <ul>
+                        <li>通気スリット標準装備</li>
+                        <li>静音ファンオプション対応</li>
+                        <li>明るく安心できる空間</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-image">
+                        <img src="" alt="デザインのイメージ">
+                    </div>
+                    <div class="feature-number">3</div>
+                    <h3>美しいデザイン</h3>
+                    <ul>
+                        <li>天然木仕上げ</li>
+                        <li>北欧調の家具デザイン</li>
+                        <li>サイズ・素材・色カスタム可</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-image">
+                        <img src="" alt="お手入れのイメージ">
+                    </div>
+                    <div class="feature-number">4</div>
+                    <h3>お手入れ簡単</h3>
+                    <ul>
+                        <li>床は引き出し式トレー</li>
+                        <li>キャスター付きで移動楽々</li>
+                        <li>組立・分解も簡単</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-image">
+                        <img src="" alt="安全性のイメージ">
+                    </div>
+                    <div class="feature-number">5</div>
+                    <h3>安全性への配慮</h3>
+                    <ul>
+                        <li>角は全て丸く加工</li>
+                        <li>耐久性の高い強化ガラス</li>
+                        <li>脱走防止の二重ロック</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-image">
+                        <img src="" alt="スマート連携のイメージ">
+                    </div>
+                    <div class="feature-number">6</div>
+                    <h3>スマート連携対応</h3>
+                    <ul>
+                        <li>温度・湿度センサー内蔵</li>
+                        <li>スマホで環境チェック</li>
+                        <li>見守りカメラ設置可能</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 画像ギャラリー -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title fade-in">製品ギャラリー</h2>
+            <div class="gallery-wrapper">
+                <button class="gallery-nav prev" onclick="moveSlide(-1)">‹</button>
+                <div class="gallery-slider" id="gallerySlider">
+                    <div class="gallery-track" id="galleryTrack">
+                        <div class="gallery-item fade-in">
+                            <div class="gallery-placeholder">
+                                <i>📷</i>
+                                <p>製品画像1</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item fade-in">
+                            <div class="gallery-placeholder">
+                                <i>📷</i>
+                                <p>製品画像2</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item fade-in">
+                            <div class="gallery-placeholder">
+                                <i>📷</i>
+                                <p>製品画像3</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item fade-in">
+                            <div class="gallery-placeholder">
+                                <i>📷</i>
+                                <p>製品画像4</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="gallery-nav next" onclick="moveSlide(1)">›</button>
+            </div>
+            <div class="gallery-dots" id="galleryDots"></div>
+        </div>
+    </section>
+
+    <!-- 料金プラン -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title fade-in">料金プラン</h2>
+            <div class="pricing-table fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>サイズ</th>
+                            <th>外寸目安</th>
+                            <th>価格（税抜）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>小型犬用</td>
+                            <td>W80×D55×H60cm</td>
+                            <td class="price">¥298,000〜</td>
+                        </tr>
+                        <tr>
+                            <td>中型犬用</td>
+                            <td>W110×D75×H80cm</td>
+                            <td class="price">¥398,000〜</td>
+                        </tr>
+                        <tr>
+                            <td>大型犬用</td>
+                            <td>W140×D90×H100cm</td>
+                            <td class="price">¥498,000〜</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                ※完全受注生産のため、素材・仕様・オプションにより変動あり
+            </p>
+            <div class="cashback-info fade-in">
+                <i>📸</i>
+                <h3>写真投稿キャッシュバック制度</h3>
+                <p>ご購入後、ワンちゃんとWAN ROOMの写真や動画をお送りいただいたお客様に<br>
+                <strong style="color: #FF6B35; font-size: 24px;">最大3万円キャッシュバック！</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 利用シーンと対象ユーザー -->
+    <section class="target-users">
+        <div class="container">
+            <h2 class="section-title fade-in">こんな方に選ばれています</h2>
+            <div class="user-cards">
+                <div class="user-card fade-in">
+                    <i>🏢</i>
+                    <h3>都心のマンション<br>アパートにお住まいの方</h3>
+                </div>
+                <div class="user-card fade-in">
+                    <i>🐕</i>
+                    <h3>小型〜大型犬を<br>飼っているご家庭</h3>
+                </div>
+                <div class="user-card fade-in">
+                    <i>💼</i>
+                    <h3>吠え声トラブルに<br>悩む共働き家庭</h3>
+                </div>
+                <div class="user-card fade-in">
+                    <i>❤️</i>
+                    <h3>音に敏感な犬に<br>安心できる居場所を</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お客様の声 -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">お客様の声</h2>
+            <div class="testimonial-cards">
+                <div class="testimonial-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <div class="customer-photo">
+                        <img src="" alt="お客様の写真">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        夜泣きのストレスが無くなり、自分も愛犬もぐっすり眠れるようになりました。防音効果は期待以上で、隣の部屋にいても鳴き声がほとんど聞こえません。
+                    </p>
+                    <p class="testimonial-author">東京都 M様（トイプードル・3歳）</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <div class="customer-photo">
+                        <img src="" alt="お客様の写真">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        家具のようにリビングに置けて、来客にも褒められました。デザインが本当に素敵で、インテリアの一部として馴染んでいます。
+                    </p>
+                    <p class="testimonial-author">神奈川県 S様（柴犬・5歳）</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <div class="customer-photo">
+                        <img src="" alt="お客様の写真">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        共働きで昼間留守にする間も、安心して過ごせていると思います。換気もしっかりしていて、愛犬も快適そうです。
+                    </p>
+                    <p class="testimonial-author">千葉県 K様（ゴールデンレトリバー・2歳）</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <div class="customer-photo">
+                        <img src="" alt="お客様の写真">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        マンションの管理会社から騒音の苦情を受けていましたが、WAN ROOMを導入してから一切なくなりました。値段以上の価値があります。
+                    </p>
+                    <p class="testimonial-author">大阪府 T様（ミニチュアダックス・4歳）</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <div class="customer-photo">
+                        <img src="" alt="お客様の写真">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        愛犬が雷や花火を怖がるのですが、WAN ROOMの中だと落ち着いて過ごせるようになりました。防音だけでなく、安心できる空間になっています。
+                    </p>
+                    <p class="testimonial-author">愛知県 H様（コーギー・6歳）</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <div class="customer-photo">
+                        <img src="" alt="お客様の写真">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        サイズを完全オーダーメイドで作っていただき、狭い部屋にもピッタリ収まりました。お掃除も簡単で、いつも清潔に保てています。
+                    </p>
+                    <p class="testimonial-author">福岡県 N様（フレンチブルドッグ・3歳）</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <div class="customer-photo">
+                        <img src="" alt="お客様の写真">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        2匹飼いですが、大型サイズで2匹とも快適に過ごしています。来客時も吠え声を気にせず対応できるようになりました。
+                    </p>
+                    <p class="testimonial-author">北海道 Y様（ラブラドール・5歳&7歳）</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <div class="customer-photo">
+                        <img src="" alt="お客様の写真">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        在宅ワーク中のオンライン会議でも、犬の鳴き声が入らなくなりました。仕事にも集中できて、本当に助かっています。
+                    </p>
+                    <p class="testimonial-author">京都府 I様（ビーグル・4歳）</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title fade-in">よくある質問</h2>
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Q. 換気は問題ないですか？
+                    </div>
+                    <div class="faq-answer">
+                        A. 側面スリットと、換気ファン設置オプションにより息苦しさを回避しています。愛犬の健康を第一に考えた設計になっており、長時間の使用でも安心です。
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Q. 完全に無音になりますか？
+                    </div>
+                    <div class="faq-answer">
+                        A. 犬の鳴き声を約40dBカットしますが、100%無音ではありません。大声の鳴き声が会話レベルの音量になるイメージです。マンションでの使用には十分な防音性能です。
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Q. 組立や配送はどうなりますか？
+                    </div>
+                    <div class="faq-answer">
+                        A. 組立済みまたはノックダウン式をお選びいただけます。東京より全国配送対応。設置サービスもオプションでご用意しています。
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Q. サイズのカスタマイズは可能ですか？
+                    </div>
+                    <div class="faq-answer">
+                        A. はい、お部屋のサイズや愛犬の大きさに合わせて、完全オーダーメイドで製作いたします。まずは無料見積もりでご相談ください。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最終CTA -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2 class="fade-in">今すぐ、愛犬との新しい生活を始めましょう</h2>
+            <p class="fade-in">音の悩みから解放され、家族みんなが笑顔になれる毎日へ</p>
+            <div class="cta-buttons fade-in">
+                <a href="#" class="cta-primary" onclick="showContactForm()">無料見積もりを依頼する</a>
+                <a href="#" class="cta-primary" style="background: #8B4513;" onclick="showCustomForm()">カスタム相談はこちら</a>
+            </div>
+            <div class="contact-methods fade-in">
+                <a href="#" class="contact-method">
+                    <i>💬</i> LINEで相談
+                </a>
+                <a href="#" class="contact-method">
+                    <i>📞</i> 電話で相談
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <p>© 2024 WAN ROOM. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 14px;">
+                特定商取引法に基づく表記 | プライバシーポリシー | 会社概要
+            </p>
+        </div>
+    </footer>
+
+    <!-- スタイル追加 -->
+    <style>
+        /* 利用シーンセクション */
+        .target-users {
+            background: #FFF;
+        }
+        
+        .user-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .user-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #FFF9F5 0%, #FFE5D9 100%);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .user-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .user-card i {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .user-card h3 {
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ヘッダースクロール
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ開閉
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+        }
+
+        // 画像スライダー機能
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.gallery-item');
+        const totalSlides = slides.length;
+        
+        // ドットインジケーター生成
+        function createDots() {
+            const dotsContainer = document.getElementById('galleryDots');
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                if (i === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+        
+        // スライド移動
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            updateSlider();
+        }
+        
+        // 特定のスライドへ移動
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+        
+        // スライダー更新
+        function updateSlider() {
+            const track = document.getElementById('galleryTrack');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // ドット更新
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        // 自動スライド
+        function autoSlide() {
+            moveSlide(1);
+        }
+        
+        // 初期化
+        createDots();
+        setInterval(autoSlide, 5000); // 5秒ごとに自動スライド
+
+        // お問い合わせフォーム表示（仮）
+        function showContactForm() {
+            alert('お問い合わせフォームを表示します（実装予定）');
+        }
+
+        function showCustomForm() {
+            alert('カスタム相談フォームを表示します（実装予定）');
+        }
+
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
